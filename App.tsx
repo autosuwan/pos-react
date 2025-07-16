@@ -1,27 +1,27 @@
 import React from 'react';
-import {Text, View, Image, StyleSheet} from 'react-native';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
+import LiquidGlassBottomMenu from './components/LiquidGlassBottomMenu';
 
-const NavBar = () => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+const App = () => {
+  const handleItemPress = (index: number) => {
+    console.log('Pressed item index:', index);
+  };
 
-const CatApp = () => {
+  <View style={{ flex: 1, backgroundColor: 'black' }} />
+
   return (
-    <View>
-      <NavBar />
-      <Image
-        source={{
-          uri: 'https://reactnative.dev/docs/assets/p_cat1.png',
-        }}
-        style={{width: 200, height: 200}}
-      />
-      <Text>Hello, I am your cat!</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={{ flex: 1 }} />
+      <LiquidGlassBottomMenu onItemPress={handleItemPress} />
+    </SafeAreaView>
   );
 };
 
-export default CatApp;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+  },
+});
+
+export default App;
